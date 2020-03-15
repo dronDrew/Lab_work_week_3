@@ -24,6 +24,12 @@ namespace Lab_work_week_3
             Console.WriteLine(A.Lenght());
             Console.WriteLine(A.GetLowerBound());
             Console.WriteLine(A.GetUpperBound());
+            int mem =  565000;
+            Flash flash = new Flash("King", "RED", 256000, 4);
+            Console.WriteLine(flash.All_info());
+            flash.Copy_data_from(ref mem);
+            Console.WriteLine(flash.All_info());
+            Console.WriteLine(mem);
         }
     }
 }
