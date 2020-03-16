@@ -10,12 +10,12 @@ namespace Lab_work_week_3
     {
         public override void Copy_data_from( ref int memory_of_storage)
         {
-            while (Memory_free > 0) {
-                if ((Memory_free - (780 * this.speed_of_USB_3_0)) < 0) {
+            while (Memory_free > 0&&memory_of_storage>0) {
+                if ((Memory_free -  this.speed_of_USB_3_0) < 0) {
                     break;
                 }
-                memory_of_storage-= (780*this.speed_of_USB_3_0);
-                this.Memory_free -= (780*this.speed_of_USB_3_0);
+                memory_of_storage-=this.speed_of_USB_3_0;
+                this.Memory_free -=this.speed_of_USB_3_0;
             }
         }
         public override string All_info()
