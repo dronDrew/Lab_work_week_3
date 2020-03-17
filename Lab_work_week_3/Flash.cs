@@ -8,9 +8,14 @@ namespace Lab_work_week_3
 {
     class Flash:Storage
     {
-        public override void Copy_data_from( ref int memory_of_storage)
+        public override void Copy_data_from( ref double memory_of_storage)
         {
             while (Memory_free > 0&&memory_of_storage>0) {
+                if ((memory_of_storage - this.speed_of_USB_3_0) < 0)
+                {
+                    this.Memory_free -= memory_of_storage;
+                    memory_of_storage -= memory_of_storage;
+                }
                 if ((Memory_free -  this.speed_of_USB_3_0) < 0) {
                     break;
                 }
@@ -20,17 +25,18 @@ namespace Lab_work_week_3
         }
         public override string All_info()
         {
-            return this.name_storage+" "+this.Model_storage+" "+ this.Memory_capacity + " " + this.Memory_free + " "+this.speed_of_USB_3_0; 
+            return " Name "+this.name_storage+" Model "+this.Model_storage+" Memory "+ this.Memory_capacity + " Free memory" + this.Memory_free + "  speed "+this.speed_of_USB_3_0; 
         }
 
-        public int speed_of_USB_3_0 { get; set; }
+        public double speed_of_USB_3_0 { get; set; }
 
-        public Flash(string name, string model, double Memory_cop, int speed) {
+        public Flash(string name, string model, double Memory_cop, double speed) {
             this.name_storage = name;
             this.Model_storage = model;
             this.Memory_capacity = Memory_cop;
             this.Memory_free = Memory_cop;
             this.speed_of_USB_3_0 = speed;
+            this.infospeed = speed;
         }
     }
 }
