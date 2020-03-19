@@ -10,6 +10,10 @@ namespace Tast_3
     {
         static void Main(string[] args)
         {
+            Figure_work prog = new Figure_work();
+            prog.Menu();
         }
+
+        
     }
 }
